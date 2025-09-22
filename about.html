@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feane - Fast Food Restaurant</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+ 
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      background-color: transparent !important;
+      padding: 15px 50px;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: url("burger.jpg") no-repeat center right;
+      background-size: cover;
+      padding: 0 50px;
+    }
+    .hero .content {
+      max-width: 600px;
+    }
+    .btn-read {
+      background-color: #ffbe33;
+      color: rgb(227, 226, 226);
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+    }
+    .btn-read:hover {
+      background-color: #ffa600;
+      color: white;
+    }
+    .navbar-nav .nav-link {
+        color: white; /* mặc định chữ trắng */
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #ffc107 !important; /* màu vàng (Bootstrap warning) */
+    }
+    .navbar i {
+        color: white !important;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    /* Khi hover thì đổi sang vàng */
+    .navbar i:hover {
+        color: #f1c40f !important;
+    }
+    .hero-img img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Feane</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">MENU</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">BOOK TABLE</a></li>
+        </ul>
+  
+        <div class="d-flex align-items-center gap-3">
+          <a href="#"><i class="fa fa-user"></i></a>
+          <a href="#"><i class="fa fa-shopping-cart"></i></a>
+          <a href="#"><i class="fa fa-search"></i></a>
+          <a href="#" class="btn-order">Order Online</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+    <section class="hero">
+        <div class="container-fluid">
+        <div class="row w-100 align-items-center">
+            
+            <!-- Cột trái: nội dung -->
+            <div class="col-lg-6 col-md-12">
+            <div class="content text-white">
+                <h1 class="display-5 fw-bold">We Are Feane</h1>
+                <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.All
+                </p>
+                <a href="#" class="btn-read">Read more</a>
+            </div>
+            </div>
+    
+            <!-- Cột phải: ảnh -->
+            <div class="col-lg-6 col-md-12 text-center">
+            <div class="hero-img">
+                <img src="./img/fastfood-removebg-preview.png" alt="Fastfood" class="img-fluid">
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
