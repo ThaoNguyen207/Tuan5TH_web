@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feane - Fast Food Restaurant</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+ 
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      background-color: transparent !important;
+      padding: 15px 50px;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: url("burger.jpg") no-repeat center right;
+      background-size: cover;
+      padding: 0 50px;
+    }
+    .hero .content {
+      max-width: 600px;
+    }
+    .btn-order {
+      background-color: #ffbe33;
+      color: rgb(227, 226, 226);
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+    }
+    .btn-order:hover {
+      background-color: #ffa600;
+      color: white;
+    }
+    .navbar-nav .nav-link {
+        color: white; /* mặc định chữ trắng */
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #ffc107 !important; /* màu vàng (Bootstrap warning) */
+    }
+    .navbar i {
+        color: white !important;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+    .navbar i:hover {
+        color: #f1c40f !important;
+    }
+    .hero-img img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+    .modal-content {
+      background-color: #fff;
+      color: #000;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .modal-content h2 {
+      color: #ffbe33;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #ffbe33;
+      border-radius: 5px;
+      outline: none;
+    }
+    .modal-content .btn {
+      background-color: #ffbe33;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin: 0 5px;
+      margin-bottom: 10px;
+    }
+    .modal-content .btn:hover {
+      background-color: #ffa600;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Feane</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">MENU</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">BOOK TABLE</a></li>
+        </ul>
+  
+        <div class="d-flex align-items-center gap-3">
+          <a href="#"><i class="fa fa-user"></i></a>
+          <a href="#"><i class="fa fa-shopping-cart"></i></a>
+          <a href="#"><i class="fa fa-search"></i></a>
+          <a href="#" class="btn-order" data-bs-toggle="modal" data-bs-target="#orderModal">Order Online</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container-fluid">
+      <div class="row w-100 align-items-center">
+        <!-- Cột trái: nội dung -->
+        <div class="col-lg-6 col-md-12">
+          <div class="content text-white">
+            <h1 class="display-5 fw-bold">Fast Food Restaurant</h1>
+            <p>
+              Doloremque, itaque aperiam facilis rerum, commodi, tempore sapiente ad
+              mollitia laborum quam quisquam esse error unde. Tempora ex doloremque,
+              labore, sunt repellat dolore, iste magni quos nihil ducimus libero.
+            </p>
+            <a href="#" class="btn-order" data-bs-toggle="modal" data-bs-target="#orderModal">Order Now</a>
+          </div>
+        </div>
+    
+        <!-- Cột phải: ảnh -->
+        <div class="col-lg-6 col-md-12 text-center">
+          <div class="hero-img">
+            <img src="./img/fastfood-removebg-preview.png" alt="Fastfood" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Modal -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <h2>Order</h2>
+        <input type="tel" id="telephone" placeholder="Telephone" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="button" class="btn" onclick="checkOut()">Check out</button>
+        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function checkOut() {
+      const telephone = document.getElementById('telephone').value;
+      const email = document.getElementById('email').value;
+
+      // Basic validation
+      if (!telephone || !email) {
+        alert('Please fill in both telephone and email fields!');
+        return;
+      }
+      if (!/^\d{10,}$/.test(telephone.replace(/\D/g, ''))) {
+        alert('Please enter a valid telephone number!');
+        return;
+      }
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        alert('Please enter a valid email!');
+        return;
+      }
+
+      // If validation passes
+      alert('Order placed successfully!\nTelephone: ' + telephone + '\nEmail: ' + email);
+      const modal = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
+      modal.hide();
+      document.getElementById('telephone').value = '';
+      document.getElementById('email').value = '';
+    }
+  </script>
+</body>
+</html>
